@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Setup Screen -->
+        <div id="setup-screen" class="screen active">
+            <h1>Dynamic Quiz Application</h1>
+            <div class="setup-form">
+                <div class="form-group">
+                    <label for="category">Select Category:</label>
+                    <select id="category">
+                        <option value="general">General Knowledge</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="difficulty">Select Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                
+                <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="question-number">Question 1 of 10</span>
+                    <div class="timer-container">
+                        <span class="timer-label">Time Left:</span>
+                        <span id="timer" class="timer">30</span>
+                        <span class="timer-label">seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <h2 id="question-text">Question will appear here</h2>
+                
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically loaded here -->
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="prev-btn" class="btn btn-secondary" disabled>Previous</button>
+                    <button id="next-btn" class="btn btn-primary">Next</button>
+                    <button id="submit-btn" class="btn btn-success" style="display: none;">Submit Quiz</button>
+                </div>
+            </div>
+
+            <div class="question-navigator">
+                <h3>Question Navigator</h3>
+                <div id="question-dots" class="question-dots">
+                    <!-- Question dots will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h1>Quiz Results</h1>
+            
+            <div class="results-summary">
+                <div class="score-card">
+                    <h2>Your Score</h2>
+                    <div class="score-value" id="final-score">0/10</div>
+                    <div class="score-percentage" id="score-percentage">0%</div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box correct">
+                        <div class="stat-value" id="correct-count">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-box incorrect">
+                        <div class="stat-value" id="incorrect-count">0</div>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                    <div class="stat-box unanswered">
+                        <div class="stat-value" id="unanswered-count">0</div>
+                        <div class="stat-label">Unanswered</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-results">
+                <h2>Detailed Analysis</h2>
+                <canvas id="resultsChart"></canvas>
+                
+                <div id="time-analysis" class="time-analysis">
+                    <!-- Time spent per question will be shown here -->
+                </div>
+
+                <div id="question-review" class="question-review">
+                    <!-- Detailed question review will be shown here -->
+                </div>
+            </div>
+
+            <button id="restart-btn" class="btn btn-primary">Take Another Quiz</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="quiz-data.js"></script>
+    <script src="quiz-app.js"></script>
+</body>
+</html>
